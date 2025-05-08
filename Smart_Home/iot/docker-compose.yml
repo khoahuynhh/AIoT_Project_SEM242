@@ -1,0 +1,11 @@
+#Redis
+services:
+  redis:
+    image: redis # Uses the existing image from `docker pull redis`
+    container_name: my-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data # Persist data
+    command: [ "redis-server", "--appendonly", "yes" ]

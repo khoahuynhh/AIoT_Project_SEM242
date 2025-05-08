@@ -1,0 +1,177 @@
+### Use token to access API
+GET  http://localhost:8070/api/user/test/getUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaHVvY2JrMjIiLCJpYXQiOjE3NDI5ODAyMDcsImV4cCI6MTc0Mjk4MDMxNX0.Ty1FHCWyfW2TWgrROu3MVxzpNpognQQcuqKutcc7Yww
+###
+GET  http://localhost:8070/api/user/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDMwNTQ3MywiZXhwIjoxNzQ0MzA5MDczfQ.OZqgorR6GmmUYUAwMn4oLfVGmvjdrwjvzQ7Ukh_W8hM
+###
+GET  http://localhost:8070/api/home/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDMwNTYxNywiZXhwIjoxNzQ0MzA5MjE3fQ.etYsXk3h9L5xmLBA8BpAOV1JKhlcHghakPNfAMNtrzQ
+
+###
+POST  http://localhost:8070/api/voice-command
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaHVvY2JrMjIiLCJpYXQiOjE3NDI5ODAyMDcsImV4cCI6MTc0Mjk4MDMxNX0.Ty1FHCWyfW2TWgrROu3MVxzpNpognQQcuqKutcc7Yww
+Content-Type: application/json
+
+{
+  "command": "on the light"
+}
+
+
+
+#################### TEST API FROM HERE ####################
+POST  http://localhost:8070/api/home/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaHVvY2JrMjIiLCJpYXQiOjE3NDMxNTUxMzcsImV4cCI6MTc0MzE1NTI0NX0.SixazRp18WBVmFVkvHKHSnuqGwz9_wSLKi6U9ZCLKmA
+Content-Type: application/json
+
+{
+  "address":"HCM",
+  "hometype":"apartment"
+}
+
+
+########## Employee
+POST  http://localhost:8070/api/employee/adduser
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "user1",
+  "homeId": "1"
+}
+########## ADD USER
+POST  http://localhost:8070/api/employee/addhome
+Content-Type: application/json
+
+{
+  "address":"Dong nai",
+  "hometype":"apartment"
+}
+########## SENSOR DATA
+GET http://localhost:8070/api/sensor/temperature/stream
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDc3NTg3OSwiZXhwIjoxNzQ0Nzc5NDc5fQ.01obPvUSZmSUeZusZWK7wNAYSVMXfCSPkl6bL_c17R8
+Content-Type: application/json
+
+{
+  "deviceId": 12
+}
+
+###
+GET http://localhost:8070/api/sensor/light/stream
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDc3MDc2MiwiZXhwIjoxNzQ0Nzc0MzYyfQ.zWcrnyrHkkmqOXuqQcZ5vl2aE8m7ESHuuloq1YYETJg
+Content-Type: application/json
+
+{
+  "deviceId": 12
+}
+###
+GET http://localhost:8070/api/sensor/humidity/stream
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDc3MDc2MiwiZXhwIjoxNzQ0Nzc0MzYyfQ.zWcrnyrHkkmqOXuqQcZ5vl2aE8m7ESHuuloq1YYETJg
+Content-Type: application/json
+
+{
+  "deviceId": 1
+}
+
+########## FACE IDENTIFY
+GET http://localhost:8070/api/face/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDE1ODc0MSwiZXhwIjoxNzQ0MTU4ODQ5fQ.ij4TZPX1Yhjbz-UVyhuH9Tnaf8Ch5sWM8AlBN0fkua0
+###
+GET http://localhost:8070/api/face/test/get_embedding
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDMwNTQ3MywiZXhwIjoxNzQ0MzA5MDczfQ.OZqgorR6GmmUYUAwMn4oLfVGmvjdrwjvzQ7Ukh_W8hM
+
+########## CONTROLLING DEVICE
+POST http://localhost:8070/devicecontrol/fan/activate
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDU5ODk5NywiZXhwIjoxNzQ0NjAyNTk3fQ.bSulgILU53njyaOsm3Jv9X_hVtA2z3tLT86_ZaNYBz8
+Content-Type: application/json
+
+{
+  "deviceId": "user1",
+  "action": "off",
+  "level": "3"
+}
+###
+POST http://localhost:8070/devicecontrol/light/activate
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDc3ODUxOSwiZXhwIjoxNzQ0NzgyMTE5fQ.Zyh5HHNJ96fKX8VJOn8FF-xZmLEk3EnFqtQcMJGzmrM
+Content-Type: application/json
+
+{
+  "deviceId": "user1",
+  "action": "off",
+  "color": "green"
+}
+###
+POST http://localhost:8070/devicecontrol/door/activate
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDc3MDc2MiwiZXhwIjoxNzQ0Nzc0MzYyfQ.zWcrnyrHkkmqOXuqQcZ5vl2aE8m7ESHuuloq1YYETJg
+Content-Type: application/json
+
+{
+  "deviceId": "user1",
+  "action": "off"
+}
+
+########## USER LOGIN
+POST  http://localhost:8070/api/face/server/send_embedding
+Content-Type: application/json
+
+{
+  "data":{
+  "username": "user1",
+  "embedding": [0.1, 0.2, 0.3, 0.4]
+  }
+}
+
+### USER LOGIN
+POST  http://localhost:8070/api/user/login
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "user1"
+}
+### eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDM1NTA5NiwiZXhwIjoxNzQ0MzU4Njk2fQ.B92ekHmZpCLNnpT8S2F-HShY8TNU4SRFoLZ0ZWTkM9k
+
+
+
+### EMPLOYEE
+POST  http://localhost:8070/api/employee/add_device
+Content-Type: application/json
+  
+{
+  "deviceName": "device1",
+  "deviceType": "fan",
+  "deviceStatus": "I'm fine, I'm ok KINCHANA",
+  "deviceNumber": "123456",
+  "homeId": "1"
+}
+
+### LIST TEMPERATURE
+GET http://localhost:8070/api/sensor/temperature/by-date?date=2025-04-16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTc0NDc3MDc2MiwiZXhwIjoxNzQ0Nzc0MzYyfQ.zWcrnyrHkkmqOXuqQcZ5vl2aE8m7ESHuuloq1YYETJg
+
+{
+  "message":"List of temperatures for: 2025-04-13",
+  "data":[{"value":26.3,"unit":"Celsius","status":"normal","date":"2025-04-13 01:00:00"}],
+  "error":null
+}
+
+### LIST HUMIDITY
+GET http://localhost:8070/api/sensor/humidity/by-date?date=2025-04-13
+Content-Type: application/json
+
+{
+  "message":"List of humidity for: 2025-04-13",
+  "data":[{"value":26.3,"unit":"Celsius","status":"normal","date":"2025-04-13 01:00:00"}],
+  "error":null
+}
+
+### LIST LIGHT
+GET http://localhost:8070/api/sensor/lighttemperature/by-date?date=2025-04-13
+Content-Type: application/json
+
+{
+  "message":"List of light for: 2025-04-13",
+  "data":[{"value":26.3,"unit":"Celsius","status":"normal","date":"2025-04-13 01:00:00"}],
+  "error":null
+}
